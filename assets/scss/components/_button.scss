@@ -1,0 +1,27 @@
+/*=============== BUTTON ===============*/
+.button{
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   column-gap: .5rem;
+   background-color: var(--first-color);
+   color: var(--black-color);
+   padding: .75rem 2rem;
+   font-weight: var(--font-semi-bold);
+   box-shadow: 0 4px 12px hsla(43, 88%, 32%, .4);
+
+   & i{
+      font-weight: initial;
+      font-size: 1.5rem;
+      transition: transform .4s;
+   }
+   &:hover i{
+      transform: translateX(.5rem);
+   }
+   &__ghost{
+      background-color: transparent;
+      box-shadow: none;
+      border: 2px solid var(--white-color);
+      color: var(--white-color);
+   }
+}

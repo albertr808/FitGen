@@ -1,0 +1,41 @@
+/*=============== ABOUT ===============*/
+.about{
+   background-color: var(--body-second-color);
+   
+   &__container{
+      padding-bottom: 3rem;
+      row-gap: 3rem;
+   }
+   &__title{
+      color: var(--white-color);
+      margin-bottom: 1rem;
+
+      & span{
+         color: var(--black-color);
+      }
+   }
+   &__data{
+      text-align: center;
+   }
+   &__description{
+      margin-bottom: 1.5rem;
+      color: var(--white-color);
+   }
+   &__video{
+      position: relative;
+      width: 250px;
+      height: 320px;
+      justify-self: center;
+      transform: skew(-12deg);
+      display: grid;
+      overflow: hidden;
+      box-shadow: var(--shadow-img);
+   }
+   &__file{
+      transform: skew(12deg);
+      max-width: initial;
+      height: 320px;
+      position: absolute;
+      justify-self: center;
+   }
+}
