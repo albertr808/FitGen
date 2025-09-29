@@ -1,5 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -19,15 +19,15 @@
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: 'Montserrat', sans-serif;
+  --body-font: "Montserrat", sans-serif;
   --biggest-font-size: 4.5rem;
   --big-font-size: 2.5rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
-  --normal-font-size: 0.938rem;
-  --small-font-size: 0.813rem;
-  --smaller-font-size: 0.75rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -49,8 +49,8 @@
     --h2-font-size: 1.5rem;
     --h3-font-size: 1.25rem;
     --normal-font-size: 1rem;
-    --small-font-size: 0.875rem;
-    --smaller-font-size: 0.813rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
   }
 }
 
@@ -83,10 +83,7 @@ button {
   outline: none;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
   font-weight: var(--font-bold);
 }
 
@@ -123,7 +120,7 @@ video {
   padding-block: 5rem 1rem;
 }
 
-.section__title,
+.section__title, 
 .section__subtitle {
   text-align: center;
 }
@@ -140,7 +137,7 @@ video {
   font-size: var(--small-font-size);
   font-weight: var(--font-semi-bold);
   color: var(--text-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 
 .main {
@@ -155,7 +152,7 @@ video {
   left: 0;
   background-color: transparent;
   z-index: var(--z-fixed);
-  transition: background-color 0.4s, box-shadow 0.4s;
+  transition: background-color .4s, box-shadow .4s;
 }
 
 .nav {
@@ -171,7 +168,7 @@ video {
   font-weight: var(--font-bold);
 }
 
-.nav__toggle,
+.nav__toggle, 
 .nav__close {
   display: inline-flex;
   font-size: 1.5rem;
@@ -187,8 +184,8 @@ video {
     background-color: var(--body-color);
     width: 100%;
     padding-block: 4rem;
-    box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.1);
-    transition: top 0.4s;
+    box-shadow: 0 4px 16px hsla(0, 0%, 0%, .1);
+    transition: top .4s;
   }
 }
 
@@ -206,14 +203,14 @@ video {
 }
 
 .nav__link::after {
-  content: '';
+  content: "";
   width: 0;
   height: 2px;
   background-color: var(--black-color);
   position: absolute;
   left: 0;
-  bottom: -0.5rem;
-  transition: width 0.4s;
+  bottom: -.5rem;
+  transition: width .4s;
 }
 
 .nav__link:hover::after {
@@ -234,7 +231,7 @@ video {
 /* Change background header */
 .bg-header {
   background-color: var(--body-color);
-  box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, .1);
 }
 
 /* Active link */
@@ -249,7 +246,7 @@ video {
   background-color: var(--body-second-color);
 }
 
-.home__bg,
+.home__bg, 
 .home__gradient {
   position: absolute;
   top: 0;
@@ -264,7 +261,9 @@ video {
 }
 
 .home__gradient {
-  background: linear-gradient(180deg, hsla(25, 70%, 55%, 0) 80%, hsl(25, 70%, 55%) 100%);
+  background: linear-gradient(180deg, 
+            hsla(25, 70%, 55%, 0) 80%, 
+            hsl(25, 70%, 55%) 100%);
 }
 
 .home__data {
@@ -278,7 +277,7 @@ video {
   font-size: var(--small-font-size);
   font-weight: var(--font-semi-bold);
   letter-spacing: 1px;
-  margin-bottom: 0.25rem;
+  margin-bottom: .25rem;
 }
 
 .home__title {
@@ -342,7 +341,7 @@ video {
   background: none;
   font-size: var(--normal-font-size);
   font-weight: var(--font-semi-bold);
-  transition: color 0.4s;
+  transition: color .4s;
 }
 
 .swiper-pagination-bullet-active {
@@ -354,22 +353,22 @@ video {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  column-gap: 0.5rem;
+  column-gap: .5rem;
   background-color: var(--first-color);
   color: var(--black-color);
-  padding: 0.75rem 2rem;
+  padding: .75rem 2rem;
   font-weight: var(--font-semi-bold);
-  box-shadow: 0 4px 12px hsla(43, 88%, 32%, 0.4);
+  box-shadow: 0 4px 12px hsla(43, 88%, 32%, .4);
 }
 
 .button i {
   font-weight: initial;
   font-size: 1.5rem;
-  transition: transform 0.4s;
+  transition: transform .4s;
 }
 
 .button:hover i {
-  transform: translateX(0.5rem);
+  transform: translateX(.5rem);
 }
 
 .button__ghost {
@@ -445,7 +444,9 @@ video {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, hsla(0, 0%, 0%, 0) 70%, hsl(0, 0%, 0%) 100%);
+  background: linear-gradient(180deg, 
+            hsla(0, 0%, 0%, 0) 70%, 
+            hsl(0, 0%, 0%) 100%);
 }
 
 .models__data {
@@ -458,17 +459,17 @@ video {
 
 .models__name {
   font-size: var(--h3-font-size);
-  margin-bottom: 0.25rem;
-  transition: transform 0.4s, opacity 0.4s;
+  margin-bottom: .25rem;
+  transition: transform .4s, opacity .4s;
 }
 
 .models__info {
   display: block;
   font-size: var(--small-font-size);
-  transition: transform 0.4s 0.1s, opacity 0.4s 0.1s;
+  transition: transform .4s .1s, opacity .4s .1s;
 }
 
-.models__name,
+.models__name, 
 .models__info {
   transform: translateX(5rem);
   opacity: 0;
@@ -516,7 +517,7 @@ video {
 
 .info__group h3 {
   font-size: var(--small-font-size);
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 
 .info__group p {
@@ -560,7 +561,7 @@ video {
   background-color: var(--body-second-color);
   border: 2px solid var(--white-color);
   font-weight: var(--font-semi-bold);
-  padding: 0.75rem;
+  padding: .75rem;
   color: var(--white-color);
 }
 
@@ -612,7 +613,7 @@ video {
 .footer__links {
   display: flex;
   flex-direction: column;
-  row-gap: 0.5rem;
+  row-gap: .5rem;
 }
 
 .footer__link {
@@ -621,17 +622,17 @@ video {
 
 .footer__social {
   display: flex;
-  column-gap: 0.75rem;
+  column-gap: .75rem;
 }
 
 .footer__social-link {
   color: var(--white-color);
   font-size: 1.5rem;
-  transition: transform 0.4s;
+  transition: transform .4s;
 }
 
 .footer__social-link:hover {
-  transform: translateY(-0.25rem);
+  transform: translateY(-.25rem);
 }
 
 .footer__copy {
@@ -644,7 +645,7 @@ video {
 
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
-  width: 0.6rem;
+  width: .6rem;
   background-color: hsl(0, 0%, 80%);
 }
 
@@ -662,17 +663,17 @@ video {
   right: 1rem;
   bottom: -50%;
   background-color: var(--body-color);
-  box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, .1);
   color: var(--black-color);
   display: inline-flex;
   padding: 6px;
   font-size: 1.25rem;
   z-index: var(--z-tooltip);
-  transition: bottom 0.4s, transform 0.4s;
+  transition: bottom .4s, transform .4s;
 }
 
 .scrollup:hover {
-  transform: translateY(-0.5rem);
+  transform: translateY(-.5rem);
 }
 
 /* Show Scroll Up */
@@ -756,7 +757,7 @@ video {
   .nav {
     height: calc(var(--header-height) + 2rem);
   }
-  .nav__toggle,
+  .nav__toggle, 
   .nav__close {
     display: none;
   }
@@ -798,7 +799,7 @@ video {
     column-gap: 12rem;
     padding-bottom: 5rem;
   }
-  .about__title,
+  .about__title, 
   .about__data {
     text-align: initial;
   }
