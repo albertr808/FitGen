@@ -932,7 +932,7 @@ video {
     margin-top: 2.5rem;
 }
 .galeria-categoria img {
-    width: 20%;
+    width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 12px;
