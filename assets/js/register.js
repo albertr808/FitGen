@@ -1,4 +1,3 @@
-
 const formRegistroEl = document.getElementById("formRegistro");
 const divRegistroEl = formRegistroEl.querySelector(".message");
 
@@ -59,10 +58,12 @@ function enviarCorreoBienvenida(nombre, correo) {
         });
 }
 
+// SIN 'export'
 const renderError = (container, message) => {
   container.innerHTML = `<div class="alert alert-danger" role="alert">${message}</div>`;
 };
 
+// SIN 'export'
 const renderSuccess = (container, message) => {
   container.innerHTML = `<div class="alert alert-success" role="alert">${message}</div>`;
 };
