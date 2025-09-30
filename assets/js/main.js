@@ -90,6 +90,45 @@ const sr = ScrollReveal({
    // reset: true, // Animations repeat
 })
 
+//script categoria productos
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Seleccionamos TODOS los botones y TODAS las galerías
+    const todosLosBotones = document.querySelectorAll('.btn-categoria');
+    const todasLasGalerias = document.querySelectorAll('.galeria-categoria');
+
+    // Recorremos cada botón para asignarle la funcionalidad
+    todosLosBotones.forEach(boton => {
+        boton.addEventListener('click', () => {
+            // Obtenemos el ID de la galería que este botón debe controlar
+            const targetId = boton.dataset.target;
+            const galeriaTarget = document.getElementById(targetId);
+
+            // Verificamos si la galería que queremos abrir ya está visible
+            const estaVisible = galeriaTarget.style.display === 'grid';
+
+            // Ocultamos todas las galerías
+            todasLasGalerias.forEach(galeria => {
+                galeria.style.display = 'none';
+            });
+
+            // Restablecemos el texto de todos los botones
+            todosLosBotones.forEach(b => {
+                // Extraemos el nombre de la categoría del atributo data-target
+                const nombreCategoria = b.dataset.target.split('-')[1];
+                // Capitalizamos la primera letra
+                const nombreCapitalizado = nombreCategoria.charAt(0).toUpperCase() + nombreCategoria.slice(1);
+                b.textContent = `Ver ${nombreCapitalizado}`;
+            });
+
+            // --- Segundo: Abrimos solo la galería correcta (si estaba cerrada) ---
+            if (!estaVisible) {
+                galeriaTarget.style.display = 'grid';
+                boton.textContent = 'Ocultar';
+            }
+        });
+    });
+});
 sr.reveal(`.home__bg`, {scale: 1.1, opacity: 1})
 sr.reveal(`.home__swiper`, {origin: 'right', distance: '300px', delay: 800})
 sr.reveal(`.home__data`, {origin: 'bottom', delay: 1600, distance: '120px'})
@@ -102,3 +141,4 @@ sr.reveal(`.info__img`, {distance: '120px'})
 sr.reveal(`.info__number`, {origin: 'bottom', distance: '80px', delay: 800})
 sr.reveal(`.info__group`, {interval: 100, delay: 1300})
 sr.reveal(`.footer__container`)
+
