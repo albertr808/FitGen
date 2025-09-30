@@ -46,6 +46,14 @@ logoutBtnEl.addEventListener("click", () => {
   formLoginEl.reset();
 });
 
+const renderError = (container, message) => {
+  container.innerHTML = `<div class="alert alert-danger" role="alert">${message}</div>`;
+};
+
+const renderSuccess = (container, message) => {
+  container.innerHTML = `<div class="alert alert-success" role="alert">${message}</div>`;
+};
+
 function mostrarInfoUsuario(userData) {
     formLoginEl.classList.add("d-none");
     document.getElementById("formRegistro").classList.add("d-none");
