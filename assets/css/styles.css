@@ -894,6 +894,72 @@ video {
 
 }
 
+/* --- ESTILOS PARA EL CONTENEDOR DE BOTONES --- */
+.botones-container {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 15.5rem; /* Espacio entre botones */
+    margin-top: 2.5rem;
+    flex-wrap: wrap; /* Permite que los botones se ajusten en pantallas pequeñas */
+}
+
+/* --- ESTILOS PARA LOS BOTONES (sin cambios) --- */
+.button-ver-mas {
+    display: inline-block;
+    background-color: hsl(170, 100%, 15%);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+.button-ver-mas:hover {
+    background-color:hsl(27, 75%, 52%);
+}
+
+/* ---  ESTILOS PARA LAS GALERÍAS OCULTAS --- */
+.galeria-categoria {
+    display: none; /* Inician ocultas por defecto */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+.galeria-categoria img {
+    width: 20%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.producto-precio {
+    font-size: 1.25rem; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Texto en negrita */
+    color: #333; /* Color oscuro */
+    margin: 0.5rem 0 1rem 0; /* Espacio arriba y abajo */
+}
+
+
+.btn-agregar-carrito {
+    background-color: #007bff; /* Color azul primario */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+.btn-agregar-carrito:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+=======
+
+}
+
 /* ==================== Carrito de Compras (FitGen) ==================== */
 
 .store { background-color: var(--body-color); padding-block: 5rem 2rem; }
@@ -978,5 +1044,4 @@ video {
   padding: 0 .4rem; font-size: .65rem; position: relative; top: -.7rem; left: -.3rem;
 }
 .cart-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; }
-=======
 }
