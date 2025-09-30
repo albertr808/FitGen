@@ -80,7 +80,7 @@ function mostrarFormularioPago() {
   const isEmailReadonly = userData ? 'readonly' : '';
 
   modalBody.innerHTML = `
-      <h2>Simulación de Pago</h2>
+      <h2>Pago</h2>
       <p style="font-size: 0.8em; color: grey;"><strong>Aviso:</strong> No ingreses datos reales.</p>
       <form id="payment-form">
           <label>Nombre en la Tarjeta:</label>
