@@ -717,6 +717,10 @@ video {
   .contact__img {
     width: 200px;
   }
+  .home__data {
+    top: 20%;               
+    transform: translate(-50%, -20%);
+  }
 }
 
 /* For medium devices */
