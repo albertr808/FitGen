@@ -7,15 +7,736 @@
     <!--=============== FAVICON ===============-->
       <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 
-    <!--=============== REMIXICONS ===============-->
+      <!--=============== REMIXICONS ===============-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 
-    <!--=============== SWIPER CSS ===============-->
+      <!--=============== SWIPER CSS ===============-->
       <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
-    <!--=============== BOOTSTRAP ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+     <!--=============== BOOTSTRAP ===============-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Responsive car website - Bedimcode</title>
+  </head>
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#" class="nav__logo">FITGEN</a>
 
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li>
+              <a href="#home" class="nav__link active-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#about" class="nav__link">About</a>
+            </li>
+            <li>
+              <a href="#models" class="nav__link">Models</a>
+            </li>
+
+            <!-- NUEVO: enlace a la tienda -->
+            <li>
+              <a href="#store" class="nav__link">Store</a>
+            </li>
+
+            <!-- NUEVO: icono del carrito + contador -->
+            <li>
+              <a href="#" class="nav__link cart-icon" id="cart-button" role="button" aria-label="Carrito">
+                <i class="ri-shopping-cart-line"></i>
+                <span class="cart-badge" id="cart-count">0</span>
+              </a>
+
+            </li>
+
+            <li>
+              <a href="#info" class="nav__link">Information</a>
+            </li>
+
+            <li>
+              <a href="#contact" class="nav__link">Contact</a>
+            </li>
+            <li>
+              <a href="#" class="nav__link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUsuario" aria-controls="offcanvasUsuario">Usuario</a>
+            </li>
+          </ul>
+
+          <!-- Close button -->
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-large-line"></i>
+          </div>
+        </div>
+
+        <!-- Toggle button -->
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line"></i>
+        </div>
+      </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <!--==================== HOME ====================-->
+      <section class="home grid section" id="home">
+        <img src="assets/img/home-bg.png" alt="image" class="home__bg" />
+        <div class="home__gradient"></div>
+
+        <div class="home__data">
+          <h3 class="home__subtitle">SHOP YOUR LIFESTYLE</h3>
+          <h1 class="home__title">FITGEN</h1>
+        </div>
+
+        <div class="home__swiper swiper">
+          <div class="swiper-wrapper">
+            <article class="home__article swiper-slide">
+
+              <img src="assets/img/tenista3.png" alt="image" class="home__img" />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img src="assets/img/tenista1.png" alt="image" class="home__img" />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img src="assets/img/tenista4.png" alt="image" class="home__img" />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img src="assets/img/tenista2.png" alt="image" class="home__img" />
+            </article>
+
+            <article class="home__article swiper-slide">
+              <img src="assets/img/tenista5.png" alt="image" class="home__img" />
+            </article>
+
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <a href="#about" class="home__button">
+          <span>START</span>
+          <i class="ri-arrow-down-s-line"></i>
+        </a>
+      </section>
+
+      <!--==================== ABOUT ====================-->
+      <section class="about section" id="about">
+        <div class="about__container container grid">
+          <div class="about__data">
+            <h2 class="section__title about__title">
+              DESIGNED TO <br />
+              <span>GO BEYOND</span> <br />
+              PERFORMANCE
+            </h2>
+
+            <p class="about__description">
+              Revolutionary thinking is at the heart of every Lamborghini car
+              idea, whether it is the design inspired by the aerospace industry
+              or the technologies applied to natural aspiration.
+            </p>
+            <a href="#" class="button button__ghost">
+              DETAILS <i class="ri-arrow-right-s-line"></i>
+            </a>
+          </div>
+
+          <div class="about__video">
+            <video src="assets/img/about-vid.mp4" autoplay loop muted class="about__file"></video>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== MODELS ====================-->
+      <section class="models section" id="models">
+        <h2 class="section__title">
+            CATEGORÍAS <br> 
+        </h2>
+
+        <div class="models__container container grid">
+            <article class="models__card">
+                <img src="assets/img/raqueta-tenis.png" alt="image" class="models__img">
+                <div class="models__gradient"></div>
+                <div class="models__data">
+                    <h3 class="models__name">Raquetas</h3>
+                    <span class="models__info">La potencia está en tus manos.</span>
+                </div>
+            </article>
+            <article class="models__card">
+                <img src="assets/img/mochila2.jpg" alt="image" class="models__img">
+                <div class="models__gradient"></div>
+                <div class="models__data">
+                    <h3 class="models__name">Maletas</h3>
+                    <span class="models__info">Lleva tu juego a todas partes.</span>
+                </div>
+            </article>
+            <article class="models__card">
+                <img src="assets/img/tenis.jpg" alt="image" class="models__img">
+                <div class="models__gradient"></div>
+                <div class="models__data">
+                    <h3 class="models__name">Calzado</h3>
+                    <span class="models__info">Corre más rápido, juega más fuerte.</span>
+                </div>
+            </article>
+        </div>
+        <div class="botones-container">
+            <button class="button-ver-mas btn-categoria" data-target="galeria-raquetas">Ver Raquetas</button>
+            <button class="button-ver-mas btn-categoria" data-target="galeria-maletas">Ver Maletas</button>
+            <!-- <button class="button-ver-mas btn-categoria" data-target="galeria-calzado">Ver Calzado</button> -->
+        </div>
+
+        <div class="container grid galeria-categoria" id="galeria-raquetas">
+          <article class="product-card">
+            <img src="assets/img/raqueta_carbon.PNG" alt="wilson carbon" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Raqueta Carbon</h3>
+              <p class="product-card__description">Durabilidad.</p>
+              <span class="product-card__stock">Stock: 8</span>
+              <span class="product-card__price">$ 999.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="180" data-name="Raqueta Wilson Carbon" data-price="999.00"
+                      data-stock="8" data-image="assets/img/raqueta_carbon.PNG">Añadir al carrito</button>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/img/raquetawilson2.PNG" alt="Raqueta wilson 2" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Raqueta Wilson Hyper-ligereza</h3>
+              <p class="product-card__description">Ligereza y Durabilidad.</p>
+              <span class="product-card__stock">Stock: 5</span>
+              <span class="product-card__price">$1 900.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="181" data-name="Raqueta Wilson2" data-price="1900.00"
+                      data-stock="5" data-image="assets/img/raquetawilson2.PNG">Añadir al carrito</button>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/img/wilson3.PNG" alt="Raqueta wilson RF" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Raqueta Wilson Roger Federer</h3>
+              <p class="product-card__description">Versatibilidad y tecnologia.</p>
+              <span class="product-card__stock">Stock: 4</span>
+              <span class="product-card__price">$6 900.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="182" data-name="Raqueta Wilson RF" data-price="6900.00"
+                      data-stock="4" data-image="assets/img/wilson3.PNG">Añadir al carrito</button>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/img/raquetahammer.PNG" alt="Raqueta Wilson Hammer" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Raqueta Wilson Hammer</h3>
+              <p class="product-card__description">Equilibrio y estabilidad</p>
+              <span class="product-card__stock">Stock: 10</span>
+              <span class="product-card__price">$2 900.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="183" data-name="Raqueta Wilson Hammer" data-price="2900.00"
+                      data-stock="10" data-image="assets/img/raquetahammer.PNG">Añadir al carrito</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="container grid galeria-categoria" id="galeria-maletas">
+          <article class="product-card">
+            <img src="assets/img/nikepro.PNG" alt="Nike Pro" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Nike Pro</h3>
+              <p class="product-card__description">Espaciosa y duradera para viajes y entramientos</p>
+              <span class="product-card__stock">Stock: 5</span>
+              <span class="product-card__price">$1 999.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="190" data-name="Maleta Nike Pro" data-price="1999.00"
+                      data-stock="5" data-image="assets/img/nikepro.PNG">Añadir al carrito</button>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/img/maleta_teampro.jpg" alt="Maleta TeamPro Wilson" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Wilson TeamPro</h3>
+              <p class="product-card__description">Ideal para entramientos o viajes</p>
+              <span class="product-card__stock">Stock: 8</span>
+              <span class="product-card__price">$2 999.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="191" data-name="Maleta TeamPro Wilson" data-price="2999.00"
+                      data-stock="8" data-image="assets/img/maleta_teampro.jpg">Añadir al carrito</button>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/img/wilsontour.PNG" alt="Maleta Wilson Tour" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Wilson Tour</h3>
+              <p class="product-card__description">Ideal para entramientos</p>
+              <span class="product-card__stock">Stock: 8</span>
+              <span class="product-card__price">$4 800.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="192" data-name="Maleta Wilson Tour" data-price="4800.00"
+                      data-stock="8" data-image="assets/img/wilsontour.PNG">Añadir al carrito</button>
+            </div>
+          </article>
+          <!-- 2 -->
+          <article class="product-card">
+            <img src="assets/img/product2.png" alt="Tenis Urban Explorer" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Urban Explorer</h3>
+              <p class="product-card__description">Comodidad y estilo para ciudad.</p>
+              <span class="product-card__stock">Stock: 15</span>
+              <span class="product-card__price">$1 300.00 MXN</span>
+              <button
+                class="button product-card__btn add-to-cart"
+                data-id="102"
+                data-name="Tenis Urban Explorer"
+                data-price="1300.00"
+                data-stock="15"
+                data-image="assets/img/product2.png"
+              >
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+          <!-- 3 -->
+          <article class="product-card">
+            <img src="assets/img/product3.png" alt="Tenis Trail Tracker" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Trail Tracker</h3>
+              <p class="product-card__description">Suela resistente para caminos difíciles.</p>
+              <span class="product-card__stock">Stock: 8</span>
+              <span class="product-card__price">$1 800.00 MXN</span>
+              <button
+                class="button product-card__btn add-to-cart"
+                data-id="103"
+                data-name="Tenis Trail Tracker"
+                data-price="1800.00"
+                data-stock="8"
+                data-image="assets/img/product3.png"
+              >
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+          <!-- 4 -->
+          <article class="product-card">
+            <img src="assets/img/product4.png" alt="Tenis Retro Classic" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Retro Classic</h3>
+              <p class="product-card__description">Inspirados en los 80 con diseño retro.</p>
+              <span class="product-card__stock">Stock: 10</span>
+              <span class="product-card__price">$1 600.00 MXN</span>
+              <button
+                class="button product-card__btn add-to-cart"
+                data-id="104"
+                data-name="Tenis Retro Classic"
+                data-price="1600.00"
+                data-stock="10"
+                data-image="assets/img/product4.png"
+              >
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+          <!-- 5 -->
+          <article class="product-card">
+            <img src="assets/img/product5.png" alt="Tenis Speed Racer" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Speed Racer</h3>
+              <p class="product-card__description">Amortiguación ligera para máxima velocidad.</p>
+              <span class="product-card__stock">Stock: 14</span>
+              <span class="product-card__price">$1 700.00 MXN</span>
+              <button
+                class="button product-card__btn add-to-cart"
+                data-id="105"
+                data-name="Tenis Speed Racer"
+                data-price="1700.00"
+                data-stock="14"
+                data-image="assets/img/product5.png"
+              >
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+          <!-- 6 -->
+          <article class="product-card">
+            <img src="assets/img/product6.png" alt="Tenis Street Fusion" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Street Fusion</h3>
+              <p class="product-card__description">Deporte y moda para uso diario.</p>
+              <span class="product-card__stock">Stock: 20</span>
+              <span class="product-card__price">$1 400.00 MXN</span>
+              <button
+                class="button product-card__btn add-to-cart"
+                data-id="106"
+                data-name="Tenis Street Fusion"
+                data-price="1400.00"
+                data-stock="20"
+                data-image="assets/img/product6.png"
+              >
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+          <!-- 7 -->
+          <article class="product-card">
+            <img src="assets/img/product7.png" alt="Tenis Ultra Light" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Ultra Light</h3>
+              <p class="product-card__description">Material ultraligero para maratón.</p>
+              <span class="product-card__stock">Stock: 9</span>
+              <span class="product-card__price">$2 000.00 MXN</span>
+              <button
+                class="button product-card__btn add-to-cart"
+                data-id="107"
+                data-name="Tenis Ultra Light"
+                data-price="2000.00"
+                data-stock="9"
+                data-image="assets/img/product7.png"
+              >
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+          <!-- 8 -->
+          <article class="product-card">
+            <img src="assets/img/product8.png" alt="Tenis Mountain Trek" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Mountain Trek</h3>
+              <p class="product-card__description">Para hiking y montaña.</p>
+              <span class="product-card__stock">Stock: 7</span>
+              <span class="product-card__price">$1 900.00 MXN</span>
+              <button 
+                class="button product-card__btn add-to-cart"
+                data-id="108" 
+                data-name="Tenis Mountain Trek" 
+                data-price="1900.00"
+                data-stock="7" 
+                data-image="assets/img/product8.png"
+                >
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+          <!-- 9 -->
+          <article class="product-card">
+            <img src="assets/img/product9.png" alt="Tenis Pro Fitness" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Pro Fitness</h3>
+              <p class="product-card__description">Ergonómicos para el gym.</p>
+              <span class="product-card__stock">Stock: 11</span>
+              <span class="product-card__price">$1 550.00 MXN</span>
+              <button
+                class="button product-card__btn add-to-cart"
+                data-id="109"
+                data-name="Tenis Pro Fitness"
+                data-price="1550.00"
+                data-stock="11"
+                data-image="assets/img/product9.png"
+              >
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+          <!-- 10 -->
+          <article class="product-card">
+            <img src="assets/img/product10.png" alt="Tenis Aqua Flow" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Aqua Flow</h3>
+              <p class="product-card__description">Resistentes al agua para cualquier clima.</p>
+              <span class="product-card__stock">Stock: 13</span>
+              <span class="product-card__price">$1 650.00 MXN</span>
+              <button
+                class="button product-card__btn add-to-cart"
+                data-id="110"
+                data-name="Tenis Aqua Flow"
+                data-price="1650.00"
+                data-stock="13"
+                data-image="assets/img/product10.png"
+              >
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!--==================== CONTACT ====================-->
+      <section class="contact section" id="contact">
+        <div class="contact__container container grid">
+          <div class="contact__content">
+            <h2 class="section__title contact__title">
+              SUBSCRIBE TO GET <br />
+              YOUR AVENTADOR
+            </h2>
+
+            <form action="" class="contact__form grid">
+              <div class="contact__inputs grid">
+                <div class="contact__box">
+                  <label for="name" class="contact__label">Names</label>
+                  <input type="text" id="name" placeholder="Enter names" class="contact__input" />
+                </div>
+
+                <div class="contact__box">
+                  <label for="email" class="contact__label">Email</label>
+                  <input type="email" id="email" placeholder="Enter email" class="contact__input" />
+                </div>
+              </div>
+
+              <button type="submit" class="button contact__button">
+                SEND EMAIL <i class="ri-arrow-right-s-line"></i>
+              </button>
+            </form>
+          </div>
+
+          <img src="assets/img/contact-car.png" alt="image" class="contact__img" />
+        </div>
+      </section>
+
+      <!--==================== LOGIN / REGISTRO  ====================-->
+      <!-- Offcanvas Usuario -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUsuario">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Accede o crea tu cuenta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <!-- Tabs -->
+          <ul class="nav nav-tabs mb-3" id="Tabslogyreg" role="tablist">
+            <li class="nav-item">
+              <button
+                class="nav-link active"
+                id="login-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#login-tab-content"
+                type="button"
+              >
+                Login
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                id="registro-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#registro-tab-content"
+                type="button"
+              >
+                Registro
+              </button>
+            </li>
+          </ul>
+
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <!-- Login -->
+            <div class="tab-pane fade show active" id="login-tab-content" role="tabpanel">
+              <form id="formLogin">
+                <div class="message"></div>
+                <div class="mb-3">
+                  <label for="loginEmail" class="form-label">Correo</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="loginEmail"
+                    name="email"
+                    placeholder="ejemplo@correo.com"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="loginPassword" class="form-label">Contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="loginPassword"
+                    name="password"
+                    placeholder="Ingresa tu contraseña"
+                    required
+                  />
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary" id="btnForm">Ingresar</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Registro -->
+            <div class="tab-pane fade" id="registro-tab-content" role="tabpanel">
+              <form id="formRegistro">
+                <div class="message"></div>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombre"
+                    name="name"
+                    placeholder="Ingresa tu nombre"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="emailReg" class="form-label">Correo electrónico</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailReg"
+                    name="email"
+                    placeholder="ejemplo@correo.com"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="passwordReg" class="form-label">Contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passwordReg"
+                    name="password"
+                    placeholder="Ingresa tu contraseña"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="confirm-password" class="form-label">Confirmar contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirm-password"
+                    name="passwordConfirm"
+                    placeholder="Repite tu contraseña"
+                    required
+                  />
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">Registrarse</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Contenido del usuario -->
+          <div id="userContent" class="d-none">
+            <h5>Hola, <span id="userName"></span>!</h5>
+            <p>Email: <span id="userEmail"></span></p>
+            <button class="btn btn-primary" id="logoutBtn">Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+      <div class="footer__container container grid">
+        <a href="#" class="footer__logo">AVENTADOR</a>
+
+        <ul class="footer__links">
+          <li>
+            <a href="#" class="footer__link">Privacy & Legal</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer__link">Contact</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer__link">Locations</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer__link">News</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer__link">Forums</a>
+          </li>
+        </ul>
+
+        <div class="footer__social">
+          <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+            <i class="ri-facebook-circle-line"></i>
+          </a>
+
+          <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+            <i class="ri-instagram-line"></i>
+          </a>
+
+          <a href="https://twitter.com/" target="_blank" class="footer__social-link">
+            <i class="ri-twitter-x-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <span class="footer__copy"> &#169; All Rights Reserved By Bedimcode </span>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!--=============== PANEL DEL CARRITO (NUEVO) ===============-->
+    <div id="cart-panel" class="cart-panel" aria-hidden="true">
+      <div class="cart-header">
+        <h5>Carrito de compras</h5>
+        <button id="close-cart" class="cart-close" aria-label="Cerrar">
+          <i class="ri-close-large-line"></i>
+        </button>
+      </div>
+      <div class="cart-body">
+        <ul id="cart-items"></ul>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-totals">
+          <div><span>Subtotal:</span> <span id="cart-subtotal">$0.00 MXN</span></div>
+          <div><span>Total:</span> <span id="cart-total">$0.00 MXN</span></div>
+        </div>
+        <button id="clear-cart" class="button">Vaciar carrito</button>
+      </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay" aria-hidden="true"></div>
+
+    <!--=============== CART (NUEVO) ===============-->
+    <script src="assets/js/cart.js"></script>
+
+    <!--=============== LOGIN/REGISTER JS ===============-->
+    <script type="module" src="scripts/register.js"></script>
+    <script type="module" src="scripts/login.js"></script>
+
+    <!--=============== BOOTSTRAP JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+
+    <!--=============== EmailJS ===============-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+      <!--=============== SWIPER CSS ===============-->
+      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+     <!--=============== BOOTSTRAP ===============-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css" />
 
@@ -87,41 +808,33 @@
         <div class="home__gradient"></div>
 
         <div class="home__data">
-          <h3 class="home__subtitle">CHOOSE YOUR AVENTADOR</h3>
-          <h1 class="home__title">AVENTADOR</h1>
+          <h3 class="home__subtitle">SHOP YOUR LIFESTYLE</h3>
+          <h1 class="home__title">FITGEN</h1>
         </div>
 
         <div class="home__swiper swiper">
           <div class="swiper-wrapper">
             <article class="home__article swiper-slide">
 
-              <img src="assets/img/home-car-1.png" alt="image" class="home__img" />
+              <img src="assets/img/tenista3.png" alt="image" class="home__img" />
             </article>
 
             <article class="home__article swiper-slide">
-              <img src="assets/img/home-car-2.png" alt="image" class="home__img" />
+              <img src="assets/img/tenista1.png" alt="image" class="home__img" />
             </article>
 
             <article class="home__article swiper-slide">
-              <img src="assets/img/home-car-3.png" alt="image" class="home__img" />
+              <img src="assets/img/tenista4.png" alt="image" class="home__img" />
             </article>
 
             <article class="home__article swiper-slide">
-              <img src="assets/img/home-car-4.png" alt="image" class="home__img" />
+              <img src="assets/img/tenista2.png" alt="image" class="home__img" />
             </article>
 
             <article class="home__article swiper-slide">
-              <img src="assets/img/home-car-2.png" alt="image" class="home__img" />
+              <img src="assets/img/tenista5.png" alt="image" class="home__img" />
             </article>
 
-            <article class="home__article swiper-slide">
-              <img src="assets/img/home-car-3.png" alt="image" class="home__img" />
-            </article>
-
-            <article class="home__article swiper-slide">
-              <img src="assets/img/home-car-4.png" alt="image" class="home__img"
-              />
-            </article>
           </div>
         </div>
 
@@ -154,6 +867,7 @@
           </div>
 
           <div class="about__video">
+
             <video src="assets/img/about-vid.mp4" autoplay loop muted class="about__file"></video>
           </div>
         </div>
@@ -677,6 +1391,10 @@
     </div>
     <div id="cart-overlay" class="cart-overlay" aria-hidden="true"></div>
 
+        <!--=============== BOOTSTRAP JS ===============-->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+     <!--=============== EMAIL JS ===============-->
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!--=============== JS ===============-->
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
@@ -685,12 +1403,6 @@
     <!--=============== CART (NUEVO) ===============-->
     <script src="assets/js/cart.js"></script>
 
-    <!--=============== LOGIN/REGISTER JS ===============-->
-    <script type="module" src="assets/js/login.js"></script>
-    <script type="module" src="assets/js/register.js"></script>
-
-    <!--=============== BOOTSTRAP JS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!--=============== SCROLLREVEAL ===============-->
     <script src="assets/js/scrollreveal.min.js"></script>
 
@@ -700,7 +1412,11 @@
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
 
-    <!--=============== EmailJS ===============-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!--=============== LOGIN/REGISTER JS ===============-->
+      
+    <script type="module" src="assets/js/login.js"></script>
+    <script type="module" src="assets/js/register.js"></script>
+
+
   </body>
 </html>
