@@ -155,56 +155,87 @@
       </section>
 
       <!--==================== MODELS ====================-->
-      <section class="models section" id="models">
+            <section class="models section" id="models">
         <h2 class="section__title">
-          INSPIRED BY <br />
-          COLORS OF NATURE
+            CATEGORÍAS <br> 
         </h2>
 
         <div class="models__container container grid">
-          <article class="models__card">
-            <img
-              src="assets/img/model-car-1.png"
-              alt="image"
-              class="models__img"
-            />
-            <div class="models__gradient"></div>
-
-            <div class="models__data">
-              <h3 class="models__name">Silver Aventador</h3>
-              <span class="models__info">355km/s</span>
-            </div>
-          </article>
-
-          <article class="models__card">
-            <img
-              src="assets/img/model-car-2.png"
-              alt="image"
-              class="models__img"
-            />
-            <div class="models__gradient"></div>
-
-            <div class="models__data">
-              <h3 class="models__name">Yellow Aventador</h3>
-              <span class="models__info">355km/s</span>
-            </div>
-          </article>
-
-          <article class="models__card">
-            <img
-              src="assets/img/model-car-3.png"
-              alt="image"
-              class="models__img"
-            />
-            <div class="models__gradient"></div>
-
-            <div class="models__data">
-              <h3 class="models__name">Blue Aventador</h3>
-              <span class="models__info">355km/s</span>
-            </div>
-          </article>
+            <article class="models__card">
+                <img src="assets/img/raqueta-tenis.png" alt="image" class="models__img">
+                <div class="models__gradient"></div>
+                <div class="models__data">
+                    <h3 class="models__name">Raquetas</h3>
+                    <span class="models__info">La potencia está en tus manos.</span>
+                </div>
+            </article>
+            <article class="models__card">
+                <img src="assets/img/mochila2.jpg" alt="image" class="models__img">
+                <div class="models__gradient"></div>
+                <div class="models__data">
+                    <h3 class="models__name">Maletas</h3>
+                    <span class="models__info">Lleva tu juego a todas partes.</span>
+                </div>
+            </article>
+            <article class="models__card">
+                <img src="assets/img/tenis.jpg" alt="image" class="models__img">
+                <div class="models__gradient"></div>
+                <div class="models__data">
+                    <h3 class="models__name">Calzado</h3>
+                    <span class="models__info">Corre más rápido, juega más fuerte.</span>
+                </div>
+            </article>
         </div>
-      </section>
+        <div class="botones-container">
+            <button class="button-ver-mas btn-categoria" data-target="galeria-raquetas">Ver Raquetas</button>
+            <button class="button-ver-mas btn-categoria" data-target="galeria-maletas">Ver Maletas</button>
+            <button class="button-ver-mas btn-categoria" data-target="galeria-calzado">Ver Calzado</button>
+        </div>
+
+        <div class="container grid galeria-categoria" id="galeria-raquetas">
+            <div class="producto-item">
+                <img src="assets/img/raqueta_proimpact.jpg" alt="Raqueta 1">
+                <p class="producto-precio">$2,800.00 MXN</p>
+                <button class="btn-agregar-carrito" data-id="R001" data-nombre="Raqueta Pro Impact" data-precio="2800">Agregar al carrito</button>
+            </div>
+            <div class="producto-item">
+                <img src="assets/img/raqueta_carbon.jpg" alt="Raqueta 2">
+                <p class="producto-precio">$3,500.00 MXN</p>
+                <button class="btn-agregar-carrito" data-id="R002" data-nombre="Raqueta Carbon Force" data-precio="3500">Agregar al carrito</button>
+            </div>
+            <div class="producto-item">
+                <img src="assets/img/wilson.jpg" alt="Raqueta 3">
+                <p class="producto-precio">$3,500.00 MXN</p>
+                <button class="btn-agregar-carrito" data-id="R002" data-nombre="Raqueta wilson" data-precio="3500">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <div class="container grid galeria-categoria" id="galeria-maletas">
+            <div class="producto-item">
+                <img src="assets/img/maleta_teampro.jpg" alt="Maleta 1">
+                <p class="producto-precio">$1,200.00 MXN</p>
+                 <button class="btn-agregar-carrito" data-id="M001" data-nombre="Maleta Team Pro" data-precio="1200">Agregar al carrito</button>
+            </div>
+            <div class="producto-item">
+                <img src="assets/img/adidas.jpg" alt="Maleta 2">
+                <p class="producto-precio">$1,200.00 MXN</p>
+                 <button class="btn-agregar-carrito" data-id="M001" data-nombre="Maleta Nike" data-precio="1200">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <div class="container grid galeria-categoria" id="galeria-calzado">
+            <div class="producto-item">
+                <img src="assets/img/speed_court.jpg" alt="Calzado 1">
+                <p class="producto-precio">$1,950.00 MXN</p>
+                 <button class="btn-agregar-carrito" data-id="C001" data-nombre="Calzado Speed Court" data-precio="1950">Agregar al carrito</button>
+            </div>
+            <div class="producto-item">
+                <img src="assets/img/roger.jpg" alt="Calzado 2">
+                <p class="producto-precio">$1,950.00 MXN</p>
+                 <button class="btn-agregar-carrito" data-id="C001" data-nombre="roger" data-precio="1950">Agregar al carrito</button>
+            </div>
+        </div>
+    </section>
 
       <!--==================== INFORMATION ====================-->
       <section class="info section" id="info">
@@ -478,4 +509,5 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   </body>
+
 </html>
