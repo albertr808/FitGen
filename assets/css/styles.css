@@ -7,15 +7,15 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(43, 90%, 50%);
-  --first-color-alt: hsl(43, 88%, 48%);
+  --first-color: hsl(18, 51%, 47%);
+  --first-color-alt: hsl(18, 49%, 45%);
   --text-color: hsl(0, 0%, 42%);
-  --text-color-lighten: hsl(0, 0%, 92%);
+  --text-color-lighten: hsl(60, 56%, 91%);
   --black-color: hsl(0, 0%, 8%);
   --white-color: hsl(0, 0%, 100%);
-  --body-color: hsl(0, 0%, 98%);
-  --body-second-color:#B45F3B;
-  --shadow-img: -8px 8px 16px hsla(0, 0%, 0%, .2);
+  --body-color: hsl(60, 56%, 91%);
+  --body-second-color: hsl(170, 100%, 15%);
+  --shadow-img: -8px 8px 16px hsla(0, 0%, 23%, 0.2);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -891,6 +891,7 @@ video {
   body {
     zoom: 1.4;
   }
+
 }
 
 /* ==================== Carrito de Compras (FitGen) ==================== */
@@ -977,3 +978,5 @@ video {
   padding: 0 .4rem; font-size: .65rem; position: relative; top: -.7rem; left: -.3rem;
 }
 .cart-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+=======
+}
