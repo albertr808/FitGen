@@ -262,8 +262,8 @@ video {
 
 .home__gradient {
   background: linear-gradient(180deg, 
-            hsla(25, 70%, 55%, 0) 80%, 
-            hsl(25, 70%, 55%) 100%);
+            hsla(0, 0%, 23%, 0.2) 80%, 
+            hsl(60, 56%, 91%) 100%);
 }
 
 .home__data {
@@ -956,8 +956,6 @@ video {
 }
 .btn-agregar-carrito:hover {
     background-color: #0056b3; /* Azul más oscuro */
-=======
-
 }
 
 /* ==================== Carrito de Compras (FitGen) ==================== */
@@ -1044,4 +1042,3 @@ video {
   padding: 0 .4rem; font-size: .65rem; position: relative; top: -.7rem; left: -.3rem;
 }
 .cart-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; }
-}
