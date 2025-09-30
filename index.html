@@ -157,86 +157,141 @@
       </section>
 
       <!--==================== MODELS ====================-->
-
       <section class="models section" id="models">
-        <h2 class="section__title">CATEGORÍAS <br /></h2>
+        <h2 class="section__title">
+            CATEGORÍAS <br> 
+        </h2>
 
         <div class="models__container container grid">
-          <article class="models__card">
+            <article class="models__card">
                 <img src="assets/img/raqueta-tenis.png" alt="image" class="models__img">
-            <div class="models__gradient"></div>
-            <div class="models__data">
-              <h3 class="models__name">Raquetas</h3>
-              <span class="models__info">La potencia está en tus manos.</span>
-            </div>
-          </article>
-          <article class="models__card">
+                <div class="models__gradient"></div>
+                <div class="models__data">
+                    <h3 class="models__name">Raquetas</h3>
+                    <span class="models__info">La potencia está en tus manos.</span>
+                </div>
+            </article>
+            <article class="models__card">
                 <img src="assets/img/mochila2.jpg" alt="image" class="models__img">
-            <div class="models__gradient"></div>
-            <div class="models__data">
-              <h3 class="models__name">Maletas</h3>
-              <span class="models__info">Lleva tu juego a todas partes.</span>
-            </div>
-          </article>
-          <article class="models__card">
+                <div class="models__gradient"></div>
+                <div class="models__data">
+                    <h3 class="models__name">Maletas</h3>
+                    <span class="models__info">Lleva tu juego a todas partes.</span>
+                </div>
+            </article>
+            <article class="models__card">
                 <img src="assets/img/tenis.jpg" alt="image" class="models__img">
-            <div class="models__gradient"></div>
-            <div class="models__data">
-              <h3 class="models__name">Calzado</h3>
-              <span class="models__info">Corre más rápido, juega más fuerte.</span>
-            </div>
-          </article>
+                <div class="models__gradient"></div>
+                <div class="models__data">
+                    <h3 class="models__name">Calzado</h3>
+                    <span class="models__info">Corre más rápido, juega más fuerte.</span>
+                </div>
+            </article>
         </div>
         <div class="botones-container">
-          <button class="button-ver-mas btn-categoria" data-target="galeria-raquetas">Ver Raquetas</button>
-          <button class="button-ver-mas btn-categoria" data-target="galeria-maletas">Ver Maletas</button>
-          <button class="button-ver-mas btn-categoria" data-target="galeria-calzado">Ver Calzado</button>
+            <button class="button-ver-mas btn-categoria" data-target="galeria-raquetas">Ver Raquetas</button>
+            <button class="button-ver-mas btn-categoria" data-target="galeria-maletas">Ver Maletas</button>
+            <!-- <button class="button-ver-mas btn-categoria" data-target="galeria-calzado">Ver Calzado</button> -->
         </div>
 
         <div class="container grid galeria-categoria" id="galeria-raquetas">
-          <div class="producto-item">
-                <img src="assets/img/raqueta_proimpact.jpg" alt="Raqueta 1">
-            <p class="producto-precio">$2,800.00 MXN</p>
-                <button class="btn-agregar-carrito" data-id="R001" data-nombre="Raqueta Pro Impact" data-precio="2800">Agregar al carrito</button>
-          </div>
-          <div class="producto-item">
-                <img src="assets/img/raqueta_carbon.jpg" alt="Raqueta 2">
-            <p class="producto-precio">$3,500.00 MXN</p>
-                <button class="btn-agregar-carrito" data-id="R002" data-nombre="Raqueta Carbon Force" data-precio="3500">Agregar al carrito</button>
-          </div>
-          <div class="producto-item">
-                <img src="assets/img/wilson.jpg" alt="Raqueta 3">
-            <p class="producto-precio">$3,500.00 MXN</p>
-                <button class="btn-agregar-carrito" data-id="R002" data-nombre="Raqueta wilson" data-precio="3500">Agregar al carrito</button>
-          </div>
+            <article class="product-card">
+            <img src="assets/img/raqueta_carbon.PNG" alt="wilson carbon" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Raqueta Carbon</h3>
+              <p class="product-card__description">Durabilidad.</p>
+              <span class="product-card__stock">Stock: 8</span>
+              <span class="product-card__price">$ 999.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="180" data-name="Raqueta Wilson Carbon" data-price="999.00"
+                      data-stock="8" data-image="assets/img/raqueta_carbon.PNG">Añadir al carrito</button>
+            </div>
+            <article class="product-card">
+            <img src="assets/img/raquetawilson2.PNG" alt="Raqueta wilson 2" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Raqueta Wilson Hyper-ligereza</h3>
+              <p class="product-card__description">Ligereza y Durabilidad.</p>
+              <span class="product-card__stock">Stock: 5</span>
+              <span class="product-card__price">$1 900.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="181" data-name="Raqueta Wilson2" data-price="1900.00"
+                      data-stock="5" data-image="assets/img/raquetawilson2.PNG">Añadir al carrito</button>
+            </div>
+                        <article class="product-card">
+            <img src="assets/img/wilson3.PNG" alt="Raqueta wilson 2" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Raqueta Wilson Roger Federer</h3>
+              <p class="product-card__description">Versatibilidad y tecnologia.</p>
+              <span class="product-card__stock">Stock: 4</span>
+              <span class="product-card__price">$6 900.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="182" data-name="Raquetaw Wilson RF" data-price="6900.00"
+                      data-stock="4" data-image="assets/img/wilson3.PNG">Añadir al carrito</button>
+            </div>
+            <article class="product-card">
+            <img src="assets/img/raquetahammer.PNG" alt="Raqueta Wilson Hammer" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Raqueta Wilson Hammer</h3>
+              <p class="product-card__description">Equilibrio y estabilidad</p>
+              <span class="product-card__stock">Stock: 10</span>
+              <span class="product-card__price">$2 900.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="183" data-name="Raqueta Wilson Hammer" data-price="2900.00"
+                      data-stock="10" data-image="assets/img/raquetahammer.PNG">Añadir al carrito</button>
+            </div>
         </div>
 
         <div class="container grid galeria-categoria" id="galeria-maletas">
-          <div class="producto-item">
-                <img src="assets/img/maleta_teampro.jpg" alt="Maleta 1">
-            <p class="producto-precio">$1,200.00 MXN</p>
-                 <button class="btn-agregar-carrito" data-id="M001" data-nombre="Maleta Team Pro" data-precio="1200">Agregar al carrito</button>
-          </div>
-          <div class="producto-item">
-                <img src="assets/img/adidas.jpg" alt="Maleta 2">
-            <p class="producto-precio">$1,200.00 MXN</p>
-                 <button class="btn-agregar-carrito" data-id="M001" data-nombre="Maleta Nike" data-precio="1200">Agregar al carrito</button>
-          </div>
+                      <article class="product-card">
+            <img src="assets/img/nikepro.PNG" alt="Nike Pro" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Nike Pro</h3>
+              <p class="product-card__description">Espaciosa y duradera para viajes y entramientos</p>
+              <span class="product-card__stock">Stock: 5</span>
+              <span class="product-card__price">$1 999.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="190" data-name="Maleta Nike Pro" data-price="1999.00"
+                      data-stock="5" data-image="assets/img/nikepro.PNG">Añadir al carrito</button>
+            </div>
+            <article class="product-card">
+            <img src="assets/img/maleta_teampro.jpg" alt="Tenis Trail Tracker" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Wilson TeamPro</h3>
+              <p class="product-card__description">Ideal para entramientos o viajes</p>
+              <span class="product-card__stock">Stock: 8</span>
+              <span class="product-card__price">$2 999.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="191" data-name="Maleta TeamPro Wilson" data-price="2999.00"
+                      data-stock="8" data-image="assets/img/maleta_teampro.jpg">Añadir al carrito</button>
+            </div>
+            <article class="product-card">
+            <img src="assets/img/wilsontour.PNG" alt="Tenis Trail Tracker" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Woñspm Tour</h3>
+              <p class="product-card__description">Ideal para entramientos</p>
+              <span class="product-card__stock">Stock: 8</span>
+              <span class="product-card__price">$4 800.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="192" data-name="Maleta Wilson Tour" data-price="4800.00"
+                      data-stock="8" data-image="assets/img/maleta_teampro.jpg">Añadir al carrito</button>
+            </div>
         </div>
 
-        <div class="container grid galeria-categoria" id="galeria-calzado">
-          <div class="producto-item">
-                <img src="assets/img/speed_court.jpg" alt="Calzado 1">
-            <p class="producto-precio">$1,950.00 MXN</p>
-                 <button class="btn-agregar-carrito" data-id="C001" data-nombre="Calzado Speed Court" data-precio="1950">Agregar al carrito</button>
-          </div>
-          <div class="producto-item">
-                <img src="assets/img/roger.jpg" alt="Calzado 2">
-            <p class="producto-precio">$1,950.00 MXN</p>
-                 <button class="btn-agregar-carrito" data-id="C001" data-nombre="roger" data-precio="1950">Agregar al carrito</button>
-          </div>
-        </div>
-      </section>
+        <!-- <div class="container grid galeria-categoria" id="galeria-calzado">
+            <article class="product-card">
+            <img src="assets/img/product3.png" alt="Tenis Trail Tracker" class="product-card__img">
+            <div class="product-card__content">
+              <h3 class="product-card__title">Tenis Trail Tracker</h3>
+              <p class="product-card__description">Suela resistente para caminos difíciles.</p>
+              <span class="product-card__stock">Stock: 8</span>
+              <span class="product-card__price">$1 800.00 MXN</span>
+              <button class="button product-card__btn add-to-cart"
+                      data-id="103" data-name="Tenis Trail Tracker" data-price="1800.00"
+                      data-stock="8" data-image="assets/img/product3.png">Añadir al carrito</button>
+            </div>
+            
+        </div> -->
+    </section>
 
       <!--==================== INFORMATION ====================-->
       <section class="info section" id="info">
@@ -1486,4 +1541,5 @@
 
 
 </html>
+
 
