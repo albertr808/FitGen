@@ -531,7 +531,7 @@ video {
 }
 /* Personalización del sistema Login/Registro */
 .offcanvas {
-  background-color: var(--body-color);
+  background-color: var(--white-color);
 }
 
 .nav-tabs .nav-link {
