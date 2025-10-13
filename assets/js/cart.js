@@ -171,7 +171,7 @@ function mostrarFormularioPago() {
     });
 
     subtotalEl.textContent = money(subtotal);
-    totalEl.textContent = money(subtotal); // Nota: El total final se calcula en el ticket
+    totalEl.textContent = money(subtotal);
     countBadgeEl.textContent = String(qty);
   }
 
@@ -207,14 +207,14 @@ function mostrarFormularioPago() {
     renderCart();
   }
 
-  // --- INICIO: CÓDIGO AÑADIDO (FUNCIONES DE PAGO, TICKET, PDF Y EMAIL) ---
+
 
   function iniciarPago() {
     if (cart.length === 0) {
       alert("El carrito está vacío.");
       return;
     }
-    closeCart(); // Cierra el panel del carrito
+    closeCart();
     mostrarFormularioPago();
   }
 
@@ -224,28 +224,30 @@ function mostrarFormularioPago() {
 function procesarPago(e) {
   e.preventDefault();
   const customerName = document.getElementById('card-name').value;
-  // Leemos el correo del nuevo ID único
   const customerEmail = document.getElementById('payment-email').value;
 
-  const ticketData = prepararDatosDelTicket(customerName, customerEmail);
-  mostrarTicketVisual(ticketData);
+  // CRÍTICO: Hacer una copia profunda del carrito ANTES de vaciarlo
+  const cartSnapshot = JSON.parse(JSON.stringify(cart));
+  
+  const ticketData = prepararDatosDelTicket(customerName, customerEmail, cartSnapshot);
+  mostrarTicketVisual(ticketData, cartSnapshot);
   enviarTicketPorEmail(ticketData);
 
-  // Vaciar el carrito después del pago
+  // Ahora sí, vaciar el carrito
   cart = [];
   saveCart();
   renderCart();
 }
 
-  function prepararDatosDelTicket(customerName, customerEmail) {
+  function prepararDatosDelTicket(customerName, customerEmail, cartItems) {
     const ticketId = `TICKET-${Date.now()}`;
-    const subtotal = cart.reduce((sum, p) => sum + (p.price * p.quantity), 0);
+    const subtotal = cartItems.reduce((sum, p) => sum + (p.price * p.quantity), 0);
     const impuesto = subtotal * TASA_DE_IMPUESTO;
     const totalFinal = subtotal + impuesto + COSTO_DE_ENVIO;
 
     let itemsHtmlParaEmail = '<table style="width: 100%; border-collapse: collapse;">';
-    cart.forEach(p => {
-        // Renombramos 'image' a 'imagen' para que coincida con la plantilla de EmailJS
+    cartItems.forEach(p => {
+
         itemsHtmlParaEmail += `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px;"><img src="${p.image}" alt="${p.name}" style="height: 40px;"></td><td>${p.name} (x${p.quantity})</td><td style="text-align: right;">$${(p.price * p.quantity).toFixed(2)}</td></tr>`;
     });
     itemsHtmlParaEmail += '</table>';
@@ -267,9 +269,8 @@ function procesarPago(e) {
       .catch(err => console.error('Fallo el envío del ticket.', err));
   }
 
-  function mostrarTicketVisual(ticketData) {
-  const htmlParaPdf = generarHtmlParaPdf(ticketData);
-  
+  function mostrarTicketVisual(ticketData, cartItems) {
+  // Simplemente mostramos el mensaje de éxito en el modal.
   modalBody.innerHTML = `
       <div id="ticket-generado">
           <h2>¡Gracias por tu compra, ${ticketData.nombre_cliente}!</h2>
@@ -277,53 +278,227 @@ function procesarPago(e) {
           <p>Hemos enviado una confirmación a <strong>${ticketData.email_destino}</strong>.</p>
       </div>
       <hr>
-      <button id="btn-descargar-pdf" class="btn btn-primary">Descargar Ticket (PDF)</button>`;
+      `;
       
-  document.querySelector('#btn-descargar-pdf').addEventListener('click', () => descargarPDF(ticketData.order_id, htmlParaPdf));
+  // El event listener ahora llama a nuestra nueva función principal.
+  document.querySelector('#btn-descargar-pdf').addEventListener('click', (event) => {
+    // Pasamos los datos necesarios y el propio botón para dar feedback al usuario.
+    generarYDescargarPdf(ticketData, cartItems, event.currentTarget);
+  });
 }
 
-  function generarHtmlParaPdf(ticketData) {
-    return `
-        <div style="font-family: Arial, sans-serif; margin: 20px;">
-            <h2>Ticket de Compra</h2><p><strong>Orden #:</strong> ${ticketData.order_id}</p>
-            <table style="width: 100%; border-collapse: collapse;">
-                <tr style="background: #eee; border-bottom: 1px solid #ddd;">
-                    <th style="padding: 5px; text-align: left;">Producto</th>
-                    <th style="padding: 5px;">Cantidad</th>
-                    <th style="padding: 5px; text-align: right;">Subtotal</th>
-                </tr>
-                ${cart.map(p => `<tr><td style="padding: 5px; border-bottom: 1px solid #eee;">${p.name}</td><td style="padding: 5px; text-align: center; border-bottom: 1px solid #eee;">${p.quantity}</td><td style="padding: 5px; text-align: right; border-bottom: 1px solid #eee;">$${(p.price * p.quantity).toFixed(2)}</td></tr>`).join('')}
-                <tr><td colspan="2" style="text-align: right; padding-top: 10px;">Envío:</td><td style="text-align: right;">$${ticketData.shipping}</td></tr>
-                <tr><td colspan="2" style="text-align: right;">Impuestos:</td><td style="text-align: right;">$${ticketData.tax}</td></tr>
-                <tr style="font-weight: bold; border-top: 2px solid #333;"><td colspan="2" style="text-align: right; padding-top: 5px;">Total:</td><td style="text-align: right;">$${ticketData.order_total}</td></tr>
-            </table>
-        </div>`;
-  }
+/**
+ * Orquesta la generación del PDF. Este es el proceso:
+ * 1. Crea un elemento HTML oculto.
+ * 2. Busca todas las imágenes dentro de ese HTML.
+ * 3. Usa 'fetch' para descargar cada imagen como un 'blob' (un archivo en memoria).
+ * 4. Usa 'FileReader' para convertir ese blob a un formato de texto (Base64 Data URL).
+ * 5. Reemplaza la URL original (http://...) de cada imagen por su versión en texto.
+ * 6. Cuando TODAS las imágenes están convertidas, le pasa el HTML final a html2pdf.
+ * 7. Limpia y elimina el elemento temporal.
+ */
+// VERSIÓN CORREGIDA
+async function generarYDescargarPdf(ticketData, cartItems, buttonElement) {
+  const spinner = buttonElement.querySelector('.spinner-border');
+  buttonElement.disabled = true;
+  spinner.style.display = 'inline-block';
 
-  function descargarPDF(ticketId, htmlContent) {
-    const opt = {
-      margin: 0.5,
-      filename: `${ticketId}.pdf`,
-      image: {
-        type: 'jpeg',
-        quality: 0.98
-      },
-      html2canvas: {
-        scale: 2
-      },
-      jsPDF: {
-        unit: 'in',
-        format: 'letter',
-        orientation: 'portrait'
+  const opt = {
+    margin: 0.5,
+    filename: `${ticketData.order_id}.pdf`,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+
+  const htmlString = generarHtmlParaPdf(ticketData, cartItems);
+  const element = document.createElement("div");
+  element.style.position = "absolute";
+  element.style.left = "-9999px";
+  element.style.opacity = "0";
+  element.innerHTML = htmlString;
+  document.body.appendChild(element);
+
+  const images = Array.from(element.querySelectorAll('img'));
+  
+  const imagePromises = images.map(img => {
+    // CORRECCIÓN: Se eliminó { mode: 'no-cors' } para poder leer la respuesta.
+    return fetch(img.src) 
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Error HTTP! status: ${response.status}`);
+        }
+        return response.blob();
+      })
+      .then(blob => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            img.src = reader.result; 
+            resolve();
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+      })
+      .catch(error => console.error(`No se pudo cargar la imagen ${img.src}:`, error));
+  });
+
+  await Promise.all(imagePromises);
+
+  html2pdf().set(opt).from(element).save().then(() => {
+    document.body.removeChild(element);
+    buttonElement.disabled = false;
+    spinner.style.display = 'none';
+    console.log('✅ PDF generado y descargado exitosamente.');
+  });
+}
+
+function generarHtmlParaPdf(ticketData, cartItems) {
+  // --- Construcción del HTML para el ticket ---
+  // SOLUCIÓN: Envolvemos el contenido en una estructura HTML completa.
+  return `
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Ticket de Compra - ${ticketData.order_id}</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+          color: #333;
+        }
+        h2 { color: #0056b3; }
+        .ticket-header { margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .customer-details p { margin: 2px 0; }
+        .items-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .items-table th, .items-table td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
+        .items-table th { background-color: #f8f8f8; }
+        .product-info { display: flex; align-items: center; }
+        .product-info img { width: 50px; height: 50px; object-fit: cover; margin-right: 15px; border-radius: 5px; }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .totals-table { width: 40%; margin-left: 60%; margin-top: 20px; border-collapse: collapse; }
+        .totals-table td { padding: 8px; }
+        .totals-table .label { font-weight: bold; }
+        .totals-table .final-total { font-size: 1.2em; font-weight: bold; border-top: 2px solid #333; }
+      </style>
+    </head>
+    <body>
+      <div class="ticket-header">
+        <h2>Ticket de Compra - FITGEN</h2>
+        <p><strong>Número de Orden:</strong> ${ticketData.order_id}</p>
+      </div>
+
+      <div class="customer-details">
+        <h4>Datos del Cliente:</h4>
+        <p><strong>Nombre:</strong> ${ticketData.nombre_cliente}</p>
+        <p><strong>Email:</strong> ${ticketData.email_destino}</p>
+      </div>
+
+      <table class="items-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th class="text-center">Cantidad</th>
+            <th class="text-right">Precio Unitario</th>
+            <th class="text-right">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${cartItems.map(p => `
+            <tr>
+              <td>
+                <div class="product-info">
+                  <img src="${p.image}" alt="${p.name}" crossorigin="anonymous">
+                  <span>${p.name}</span>
+                </div>
+              </td>
+              <td class="text-center">${p.quantity}</td>
+              <td class="text-right">$${p.price.toFixed(2)}</td>
+              <td class="text-right">$${(p.price * p.quantity).toFixed(2)}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+
+      <table class="totals-table">
+        <tr>
+          <td class="label">Envío:</td>
+          <td class="text-right">$${ticketData.shipping}</td>
+        </tr>
+        <tr>
+          <td class="label">Impuestos (16%):</td>
+          <td class="text-right">$${ticketData.tax}</td>
+        </tr>
+        <tr>
+          <td class="label final-total">Total:</td>
+          <td class="text-right final-total">$${ticketData.order_total}</td>
+        </tr>
+      </table>
+    </body>
+    </html>
+  `;
+}
+
+function descargarPDF(ticketId, htmlContent) {
+  const opt = {
+    margin: 0.5,
+    filename: `${ticketId}.pdf`,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+      scale: 2,
+      useCORS: true,
+      logging: true
+    },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+
+  const element = document.createElement("div");
+  element.style.position = "absolute";
+  element.style.left = "-9999px";
+  element.style.top = "0";
+  element.style.width = "800px";
+  element.style.background = "white";
+  element.style.padding = "20px";
+  
+  element.innerHTML = htmlContent;
+  document.body.appendChild(element);
+
+  const images = element.querySelectorAll('img');
+  const imagePromises = Array.from(images).map(img => {
+    return new Promise((resolve) => {
+      if (img.complete) {
+        resolve();
+      } else {
+        img.onload = resolve;
+        img.onerror = () => {
+          console.warn('Error cargando imagen:', img.src);
+          resolve();
+        };
+        setTimeout(resolve, 3000);
       }
-    };
-    html2pdf().from(htmlContent).set(opt).save();
-  }
+    });
+  });
 
-  // --- FIN: CÓDIGO AÑADIDO ---
+  Promise.all(imagePromises).then(() => {
+    setTimeout(() => {
+      html2pdf().set(opt).from(element).save().then(() => {
+        document.body.removeChild(element);
+        console.log('✅ PDF generado exitosamente');
+      }).catch(err => {
+        console.error('❌ Error al generar PDF:', err);
+        document.body.removeChild(element);
+        alert('Hubo un error al generar el PDF. Por favor intenta nuevamente.');
+      });
+    }, 100);
+  });
+}
 
 
-  // Eventos
+
+
   $$('.add-to-cart').forEach(btn => btn.addEventListener('click', () => addItemFrom(btn)));
 
   cartBtn?.addEventListener('click', (e) => {
@@ -363,7 +538,6 @@ function procesarPago(e) {
   });
 
 
-  // --- INICIO: CÓDIGO AÑADIDO (EVENTOS PARA EL MODAL DE PAGO) ---
   checkoutBtn?.addEventListener('click', iniciarPago);
   closeModalBtn?.addEventListener('click', () => paymentModal.style.display = 'none');
   window.addEventListener('click', (e) => {
@@ -371,8 +545,6 @@ function procesarPago(e) {
       paymentModal.style.display = 'none';
     }
   });
-  // --- FIN: CÓDIGO AÑADIDO ---
-
-  // Inicialización
+ 
   renderCart();
 });
